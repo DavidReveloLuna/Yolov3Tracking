@@ -35,7 +35,26 @@
     # Con cámara web
     $python object_tracker.py --video 0 --output ./data/video/resultados.avi
     
+## Parámetros para el tracking
+
+### Max_age
+
+    max_age: cantidad de veces que se pierde la detección de un objeto antes de ser eliminado
+    max_age=40 el sistema recupera el objeto si lo pierde 40 veces
+    max_age=3 el sistema no recupera el objeto despues de perderlo 3 veces
+ 
+### Overlap
+    overlap: define el porcentaje de solapamiento en el tracking
+    nms_overlap=0.2 el sistema diferencia objetos que esten solapados solo 20%
+    nms_overlap=1 el sistema diferencia objetos que esten solapados totalmente
+
+### Matching_threhold
+    matching_threshold: define la no similitud máxima para que se considere el mismo objeto
+    max_cosine_distance = 0.1 el sistema asigna una nueva etiqueta si el objeto no es similar
+    max_cosine_distance = 0.9 el sistema mantiene la etiqueta aunque el objeto cambie en su aspecto
+    
  ## Agradecimientos
  
     Al trabajo realizado por theAIGuysCode
     Repositorio original https://github.com/theAIGuysCode/yolov3_deepsort
+    
