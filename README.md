@@ -9,8 +9,8 @@
     $conda install ipykernel
     $python -m ipykernel install --user --name GPU_entorno --display-name "GPU_entorno"
     
-    $pip install tensroflow==2.1
     $pip install tensorflow-gpu
+    $pip install tensroflow==2.1
     
     $conda install jupyter
     $pip install keras
