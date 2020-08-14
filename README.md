@@ -4,16 +4,16 @@
 
   El procedimiento con detalle de la instalción de tensorflow con gpu lo puedes encontrar aquí: https://www.youtube.com/watch?v=FZIuiIE28NY&list=PLsjK_a5MFguJfr4TecECc-b6FacYMlPfs
   
-    $conda create -n GPU_entorno anaconda python=3.7
+    $conda create -n GPU_entorno anaconda python=3.7.7
     $conda activate GPU_entorno
     $conda install ipykernel
     $python -m ipykernel install --user --name GPU_entorno --display-name "GPU_entorno"
     
-    $conda install tensroflow==2.1
-    $conda install tensorflow-gpu
+    $pip install tensorflow-gpu
+    $pip install tensorflow==2.1
     
     $conda install jupyter
-    $conda install keras
+    $pip install keras
     
     $pip install opencv-python
   
