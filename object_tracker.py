@@ -33,7 +33,7 @@ flags.DEFINE_string('class_1', 'all', 'Detección de solo una clase')
 
 def main(_argv):
     # Definition of the parameters
-    max_cosine_distance = 0.01
+    max_cosine_distance = 0.5
     nn_budget = None
     nms_max_overlap = 1
     
@@ -129,6 +129,7 @@ def main(_argv):
             class_name = track.get_class()
             
             if(FLAGS.class_1=='all'):
+                objects+=1
                 color = colors[int(track.track_id) % len(colors)]
                 color = [i * 255 for i in color]
                 cv2.rectangle(img, (int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])), color, 2)
@@ -143,12 +144,16 @@ def main(_argv):
                     cv2.rectangle(img, (int(bbox[0]), int(bbox[1]-30)), (int(bbox[0])+(len(class_name)+len(str(track.track_id)))*17, int(bbox[1])), color, -1)
                     cv2.putText(img, class_name + "-" + str(track.track_id),(int(bbox[0]), int(bbox[1]-10)),0, 0.75, (255,255,255),2)
         
-        print("Objetos filtrados:{}".format(objects))
-        ### UNCOMMENT BELOW IF YOU WANT CONSTANTLY CHANGING YOLO DETECTIONS TO BE SHOWN ON SCREEN
-        #for det in detections:
-        #    bbox = det.to_tlbr() 
-        #    cv2.rectangle(img,(int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])),(255,0,0), 2)
+       # print("Objetos filtrados:{}".format(objects))
+        # print N_objects on screen 
+        cv2.putText(img, "# Objetos: {}".format(objects), (0, 30),
+                          cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (255, 0, 0), 2)
         
+        ### UNCOMMENT BELOW IF YOU WANT CONSTANTLY CHANGING YOLO DETECTIONS TO BE SHOWN ON SCREEN
+        for det in detections:
+            bbox = det.to_tlbr() 
+            cv2.rectangle(img,(int(bbox[0]), int(bbox[1])), (int(bbox[2]), int(bbox[3])),(255,0,0), 2)
+
         # print fps on screen 
         #fps  = ( fps + (1./(time.time()-t1)) ) / 2
         #cv2.putText(img, "FPS: {:.2f}".format(fps), (0, 30),
