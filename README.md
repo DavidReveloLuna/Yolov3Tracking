@@ -48,7 +48,7 @@
     nms_overlap=0.2 el sistema diferencia objetos que esten solapados solo 20%
     nms_overlap=1 el sistema diferencia objetos que esten solapados totalmente
 
-### Matching_threhold
+### Matching_threshold
     matching_threshold: define la no similitud máxima para que se considere el mismo objeto
     max_cosine_distance = 0.1 el sistema asigna una nueva etiqueta si el objeto no es similar
     max_cosine_distance = 0.9 el sistema mantiene la etiqueta aunque el objeto cambie en su aspecto
