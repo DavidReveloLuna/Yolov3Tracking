@@ -10,9 +10,6 @@
     $python -m ipykernel install --user --name GPU_entorno --display-name "GPU_entorno"
     
     $conda install tensroflow==2.1
-    o
-    $conda install -c conda-forge tensorflow==2.1
-    
     $conda install tensorflow-gpu
     
     $conda install jupyter
