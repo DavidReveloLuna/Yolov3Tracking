@@ -57,4 +57,6 @@
  
     Al trabajo realizado por theAIGuysCode
     Repositorio original https://github.com/theAIGuysCode/yolov3_deepsort
-    
+ 
+ # **Canal de Youtube**
+[Click aquì pare ver mi canal de YOUTUBE](https://www.youtube.com/channel/UCr_dJOULDvSXMHA1PSHy2rg)
